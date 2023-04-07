@@ -1,0 +1,35 @@
+<div class="container mt-5">
+  <form #facultyForm="ngForm" (ngSubmit)="facultyForm.form.valid && submitForm()">
+    <div class="row">
+      <div class="col-6 form-group">
+        <label for="Input1">Name</label>
+        <input type="text" class="form-control" name="name" id="Input1" placeholder="Enter Name" [(ngModel)]="faculty.name" #name="ngModel" required/>
+        <span class="text-danger" *ngIf="(name.touched || facultyForm.submitted) && !faculty.name">Name is required</span>
+      </div>
+      <div class="col-6 form-group">
+        <label for="Input2">Phone</label>
+        <input type="number" class="form-control" name="phone" id="Input2" placeholder="Enter Phone Number" [(ngModel)]="faculty.phone"/>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-6 form-group">
+        <label for="Input3">Address</label>
+        <input type="text" class="form-control" name="address" id="Input3" placeholder="Enter Address" [(ngModel)]="faculty.address"/>
+      </div>
+      <div class="col-6 form-group">
+        <label for="Input4">Salary</label>
+        <input type="number" class="form-control" name="salary" id="Input4" placeholder="Enter Teacher Name" #salary="ngModel" [(ngModel)]="faculty.salary"/>
+        <span class="text-danger" *ngIf="(salary.touched || facultyForm.submitted) && !faculty.salary">Salary is required</span>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-6 form-group">
+        <label for="Input5">Date Of Joining</label>
+        <input type="date" class="form-control" name="joiningDate" id="Input5" placeholder="Enter Joining Date" [(ngModel)]="faculty.joiningDate"/>
+      </div>
+    </div>
+   <input type="submit" class="btn btn-primary mt-3"/>
+  </form>
+</div>

@@ -1,0 +1,12 @@
+:host ::ng-deep {
+    .p-datatable .p-datatable-thead > tr > th{
+        background-color: black;
+        color: white;
+    }
+    .pi:before{
+        color: white;
+    }
+    .action-btn .pi:before{
+        color: black;
+    }
+}
