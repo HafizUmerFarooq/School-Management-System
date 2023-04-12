@@ -10,9 +10,13 @@ import { IAddFaculty } from 'src/app/models/faculty';
 })
 export class AddFacultyComponent implements OnInit {
   id:string = '';
-  faculty: IAddFaculty = {name:'',phone:0,address:'',salary:0,joiningDate: ''};
+  faculty: IAddFaculty = {name:'',phone:0,address:'',salary:0,joiningDate: new Date};
 
-  constructor(private route:ActivatedRoute,private http: HttpClient,private router:Router) { }
+  constructor(
+    private route:ActivatedRoute,
+    private http: HttpClient,
+    private router:Router,
+  ) { }
 
   ngOnInit(): void {
     this.route.queryParams.subscribe((param:any)=>{
@@ -37,16 +41,13 @@ export class AddFacultyComponent implements OnInit {
 
 
   submitForm(){
-    console.log('submitForm: ');
     if(this.id){
       this.http.put('http://localhost:3000/faculty/'+this.id,this.faculty).subscribe((res:any)=>{
         this.router.navigate(['faculty'],{});
-        console.log('res: ', res);
       });
     } else {
       this.http.post('http://localhost:3000/faculty',this.faculty).subscribe((res:any)=>{
         this.router.navigate(['faculty'],{});
-        console.log('res: ', res);
       });
     };
   }

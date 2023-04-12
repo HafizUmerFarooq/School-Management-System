@@ -3,5 +3,5 @@ export interface IAddFaculty{
     phone: number;
     address: string;
     salary: number;
-    joiningDate: string
+    joiningDate: Date
 }
