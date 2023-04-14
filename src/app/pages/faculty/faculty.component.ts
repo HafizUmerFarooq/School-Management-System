@@ -17,7 +17,6 @@ export class FacultyComponent implements OnInit {
 
   getFaculties(){
     this.http.get('http://localhost:3000/faculty').subscribe((res:any)=>{
-      console.log('res: ', res);
       this.records = res.record;
     })
   }

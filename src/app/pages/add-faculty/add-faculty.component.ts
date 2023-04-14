@@ -10,7 +10,7 @@ import { IAddFaculty } from 'src/app/models/faculty';
 })
 export class AddFacultyComponent implements OnInit {
   id:string = '';
-  faculty: IAddFaculty = {name:'',phone:0,address:'',salary:0,joiningDate: new Date};
+  faculty: IAddFaculty = {name:'',phone:0,address:'',salary:0,dateOfJoining: new Date};
 
   constructor(
     private route:ActivatedRoute,
@@ -34,7 +34,7 @@ export class AddFacultyComponent implements OnInit {
       this.faculty.phone = res.records.phone;
       this.faculty.address = res.records.address;
       this.faculty.salary = res.records.salary;
-      this.faculty.joiningDate = res.records.dateOfJoining;
+      this.faculty.dateOfJoining = res.records.dateOfJoining;
       console.log('res: ', this.faculty);
     });
   }
